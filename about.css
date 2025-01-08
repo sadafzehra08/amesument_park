@@ -1,0 +1,955 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.emilys-candy-regular {
+    font-family: "Emilys Candy", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+/* font 2 */
+.abril-fatface-regular {
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+/* navbar start */
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 100px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.007);
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    transition: 0.6s;
+}
+header.sticky{
+    background-image: linear-gradient(rgba(3, 3, 7, 0.39),rgba(12,3,51,0.3));
+    padding: 8px 100px;
+    background-color: rgb(0, 26, 102);
+}
+nav ul li a.active,
+header.sticky ul li a{
+    color:whitesmoke ;
+
+}
+header.sticky .drop-down{
+    background-color:yellow;
+    color: navy;
+}
+header.sticky .drop-down li a{
+    color: navy;
+}
+
+header.sticky .drop-down li a:hover{
+    background-color:navy;
+    color: yellow;
+}
+header.sticky .btn1{
+    border: 1px solid navy;
+    color:navy;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(247, 191, 7, 0.151);
+    background-color:yellow;
+
+}
+.logo{
+    margin-top: -10px;
+    height: 60px;
+    width: 170px;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+nav ul li{
+    /* border: 2px solid black; */
+    margin: 10px;
+    list-style: none;
+    padding: 8px 8px;
+    position: relative;
+}
+nav ul li .nav-list{
+    font-weight: 200;
+    border-radius: 10px;
+    padding: 10px 15px;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* font-family: "League Spartan", sans-serif; */
+    color:whitesmoke;
+    transition: 0.3s ease;
+}
+
+nav ul li .nav-list:hover,
+nav ul li .nav-list.active{
+    color:navy;
+    background-color: yellow;
+    border-radius: 10px;
+    /* color: rgb(0, 26, 102); */
+}
+
+
+nav ul li .nav-list.active::after,
+nav ul li .nav-list:hover:after{
+    border-radius: 10px;
+    background-color: navy;
+}
+/* dropdown list */
+
+.nav-list .drop-down li a{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    height: 100%;
+    margin: -0.6rem -0.4rem;
+    font-weight: 600;
+    padding: 0.5rem 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: yellow;
+    
+
+}
+.drop-down{
+    position: absolute;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    margin: 0.3rem -0.5rem;
+    background-color: rgb(0, 26, 102);
+    color: yellow;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.411);
+    border-radius: 0.5rem;
+    font-size: 13px;
+    display: none;
+    
+}
+.pages{
+    transition: 0.3s ease all;
+    
+}
+.pages:hover .drop-down{
+    display: block;
+}
+.nav-list .fa-caret-down{
+    font-size: 18px;
+    position: relative;
+    right: -5px;
+    transform: rotate(0deg);
+    transition: 0.3s ease all;
+}
+.pages:hover .fa-caret-down{
+    transform: rotate(180deg);
+}
+.drop-down li a:hover{
+    background-color:yellow;
+    color: navy;
+    border-radius: 0.5rem;
+}
+/* drop-down end */
+
+/* search-bar start */
+nav ul .search-bar{
+    display: flex;
+    align-items: center;
+}
+.search-bar .search-box .searchToggle{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: red; */
+    margin: -30px 10px;
+}
+.searchToggle i{
+    position: absolute;
+/* background-color: brown; */
+    color:whitesmoke;
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3 ease;
+}
+.searchToggle i.cancel{
+    opacity: 0;
+    pointer-events: none;
+}
+.searchToggle.active i.cancel{
+    opacity: 1;
+    pointer-events: auto;
+}
+.searchToggle.active i.search{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.search-box{
+    position: relative;
+
+}
+.search-box .search-faild{
+    position: absolute;
+    bottom: -65px;
+    right: 10px;
+    height: 50px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    background-color:yellow;
+    padding: 3px;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.411);
+    opacity:0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+
+}
+.searchToggle.active ~ .search-faild{
+    bottom: -64px;
+    opacity:1;
+    pointer-events: auto;
+}
+
+
+.search-faild::before{
+    content: " ";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    right: 14px;
+    top: -4px;
+    background-color: yellow;
+    transform: rotate(-45deg);
+    z-index: -1;
+}
+.search-faild input{
+    height: 100%;
+    width: 100%;
+    padding: 0 45px 0 15px;
+    outline: none;
+    border: none;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 4px;
+    color: black;
+}
+.search-faild i{
+    position: absolute;
+    color: black;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+.search-bar .search-box .searchToggle:hover,
+.search-bar .search-box .searchToggle i:hover{
+    color:navy;
+    background-color: yellow;
+    border-radius: 10px;
+    /* color: rgb(0, 26, 102); */
+}
+/* search-bar end */
+
+nav .btn1{
+    border: 1px solid yellow;
+    padding: 10px 15px;
+    position: relative;
+    top: -8px;
+    border-radius: 15px;
+    color:whitesmoke;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(247, 191, 7, 0.151);
+    background-color: navy;
+    transition: 0.3s ease;
+}
+nav .btn1:hover{
+    background-color:whitesmoke;
+    color: navy;
+    font-weight: 600;
+}
+
+/* navbar end */
+/* about us start */
+#about-us{
+    height: fit-content;
+    margin-bottom: 60px;
+    
+}
+#ab-heading{
+    background-image: linear-gradient(rgba(3, 3, 7, 0.945),rgba(7, 2, 27, 0.719));
+    text-align: center;
+    background-image: url("assument park images/about us.jpg");
+    height: 60vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#ab-heading h2{
+    background-image: linear-gradient(rgba(3, 3, 7, 0.897),rgba(12, 3, 51, 0.486));
+    padding-top: 220px;
+    padding-bottom: 20px;
+    font-family: "Emilys Candy", serif;
+    font-weight: 400;
+    color:whitesmoke;
+    font-size: 35px;
+}
+#ab-heading h1{
+    background-image: linear-gradient(rgba(3, 3, 7, 0.400),rgba(12, 3, 51, 0.486));
+    font-size: 45px;
+    margin-top: -8px;
+    font-family: "Abril Fatface", serif;
+    padding-bottom: 47px;
+    color:white;
+
+}
+#ab-heading h1 span{
+    color: yellow;
+}
+/* about */
+#about{
+    /* border: 2px solid black; */
+    /* height: 100vh; */
+    flex-wrap: wrap;
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#images{
+    padding-top:20px ;
+    padding-bottom: 50px;
+    /* height: 80vh; */
+    align-items: center;
+}
+#img-1{
+    height: 65vh;
+    width: 320px;
+    border-radius: 20px;
+    border: 2px outset whitesmoke;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.411);
+}
+#img-2{
+    border: 2px outset whitesmoke;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.411);
+    position:absolute;
+    transform: rotate(368deg);
+    border-radius: 20px;
+    margin-top: 200px;
+    left: 350px;
+    height: 30vh;
+    width: 20wh;
+
+}
+#details{
+    padding-left: 60px;
+}
+#details h3{
+    font-size: 35px;
+    color: black;
+    font-family: "Emilys Candy", serif;
+}
+#details h1{
+    font-size: 45px;
+    color: navy;
+    font-family: "Abril Fatface", serif;
+}
+#details p{
+    padding: 10px 0;
+}
+.btn2{
+    padding: 10px 25px;
+    border-radius: 15px;
+    border: none;
+    color:navy;
+    font-weight: 600;
+    background-color: yellow;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.411);
+    transition: 0.3s ease;
+}
+.btn2:hover{
+    background-color:navy;
+    color: yellow;
+    font-weight: 600;
+}
+/* about us end */
+/* card */
+#people{
+    height: fit-content;
+    margin-bottom: 60px;
+    
+}
+#pp-heading{
+    /* border: 2px solid black; */
+    background-image: linear-gradient(rgba(3, 3, 7, 0.945),rgba(7, 2, 27, 0.719));
+    text-align: center;
+    height: 35vh;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.411);
+    
+}
+#pp-heading h2{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: "Emilys Candy", serif;
+    font-weight: 400;
+    color:whitesmoke;
+    font-size: 38px;
+}
+#pp-heading h1{
+    font-size: 45px;
+    margin-top: -8px;
+    font-family: "Abril Fatface", serif;
+    padding-bottom: 20px;
+    color:white;
+
+}
+#pp-heading h1 span{
+    color: yellow;
+}
+
+#pp-main{
+    margin-top: -65px;
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px 40px;
+    flex-wrap: wrap;
+}
+#pp-main2{
+    /* margin-top: -65px; */
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px 40px;
+    flex-wrap: wrap;
+}
+
+.pp-img h4{
+    text-align: center;
+    background-color: whitesmoke;
+    color: black;
+    text-transform: capitalize;
+    padding-top: 10px ;
+    padding-bottom: 5px;
+}
+.pp-img p{
+    text-align: center;
+    background-color: whitesmoke;
+    color: black;
+    text-transform: capitalize;
+    margin-top: -10px;
+    padding-bottom: 5px;
+
+}
+.p-img{
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.411);
+    height: 400px;
+    width: 310px;
+    transition: 0.5s ease;
+}
+.p-img:hover{
+    margin-top: -20px;
+}
+/* people end */
+
+#feedback{
+    background-image: url("assument park images/fd-bg.jpg");
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90vh;
+    margin: 40px 0;
+    /* border: 2px solid black; */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.411);
+}
+#fd-main{
+    background-image: linear-gradient(rgba(3, 3, 7, 0.945),rgba(3, 1, 8, 0.938));
+    height: 20vh;
+}
+#fd-main h1{
+    font-size: 45px;
+    /* border: 2px solid black; */
+    /* margin-top: -8px; */
+    font-family: "Abril Fatface", serif;
+    padding-top: 70px;
+    padding-bottom: 20px;
+    color:white;
+
+}
+
+.fd-details{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-image: linear-gradient(rgba(3, 3, 7, 0.945),rgba(7, 2, 27, 0.719));
+    padding-top: 10px;
+    height: 70vh;
+}
+.fd-cardbox{
+    background-color: rgba(245, 245, 245, 0.555);
+    box-shadow: 0 5px 15px rgba(136, 136, 136, 0.719);
+    /* border: 2px solid black; */
+    padding: 10px 0 0 0;
+}
+.fd-box{
+    display: flex;
+    justify-content: flex-start;
+}
+.fd-heading{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.fd-heading h4{
+    color:navy;
+}
+.fd-heading h5{
+    color: black;
+}
+.fd-img{
+    margin-left:50px ;
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+}
+.fd-data{
+    color: black;
+    padding: 10px;
+}
+.fd-data p{
+    padding: 10px;
+    font-size: 17px;
+}
+/* feedback end */
+
+/* newsletter start */
+.section-p1{
+    padding: 40px 80px;
+}
+#newsletter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    /* height: 30vh; */
+    background-image: url("assument park images/newsletter.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* background-color:#1a1a1a; */
+}
+#newsletter h4{
+    font-family: "Abril Fatface", serif;
+    color:navy;
+    font-size: 40px;
+    font-weight: 700;
+    backdrop-filter: blur(2px);
+}
+#newsletter p{
+    color:black;
+    font-size: 20px;
+    font-weight: 600;
+    backdrop-filter: blur(2px);
+}
+#newsletter p span{
+    color:gray;
+    backdrop-filter: blur(2px);
+}
+#newsletter .form2{
+    display: flex;
+    width: 45%;
+}
+#newsletter input{
+    height: 3.125rem;
+    padding: 0 1.25em;
+    font-size: 20px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+#newsletter button{
+    background-color:rgb(0, 26, 102);
+    color: yellow;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 40px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s ease;
+    border-radius: 10px;
+    white-space: nowrap;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+#newsletter button:hover{
+    background-color:rgb(255, 230, 0);
+    color: rgb(0, 26, 102);
+}
+/* newslatter end */
+
+
+/* footer start */
+.section-p1{
+    padding: 40px 80px;
+}
+footer{
+    background-image: linear-gradient(rgba(3, 3, 7, 0.39),rgba(12,3,51,0.3));
+    height: 70vh;
+    background-color:rgb(0, 26, 102);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+footer .colu{
+    display: flex;
+    flex-direction:column;
+    align-items: flex-start;
+    margin-bottom: 2px;
+}
+footer .logo{
+    margin-bottom: 30px;
+}
+footer h4{
+    font-size: 28px;
+    color: rgb(255, 230, 0);
+    font-family: "Abril Fatface", serif;
+    padding-bottom: 10px ;
+}
+footer p{
+    color: whitesmoke;
+    font-size: 16px;
+    margin: 0 0 5px 0;
+}
+footer strong{
+    font-size: 20px;
+}
+footer a{
+    font-size: 17px;
+    text-decoration: none;
+    color:white;
+    margin-bottom:8px ;
+}
+footer .follow{
+    margin-top: 20px;
+}
+footer .follow i{
+    color:whitesmoke;
+    font-size: 25px;
+    padding-right: 4px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+footer .follow i:hover{
+    color:rgb(255, 230, 0);
+}
+footer a:hover{
+    color:rgb(255, 230, 0);
+}
+/* footer end */
+/* footer start */
+footer .copyright{
+    width: 100%;
+    text-align: center;
+}
+footer .copyright p{
+    padding-top: 30px;
+    font-family: "League Spartan", sans-serif;
+}
+/* footer end */
+
+/* booking ticket */
+label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 400;
+    color: yellow;
+}
+input, select{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.confirm-button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid;
+    border-radius: 4px;
+    background-color:yellow;
+    color: rgb(0, 26, 102);
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.411);
+    /* border: none; */
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.confirm-button:hover {
+    border: 1px solid yellow;
+    background-color:whitesmoke;
+    color: navy;
+}
+.output {
+    color: whitesmoke;
+    font-weight: 400;
+    margin-top: 20px;
+}
+.modal-content{
+    background-color: rgb(0, 26, 102);
+}
+.modal-header h3{
+    padding-left: 145px;
+    color:  yellow;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-family: "Emilys Candy", serif;
+}
+.modal-header button{
+    background-color: yellow;
+}
+
+/* media qures */
+#mobile{
+    display: none;
+    /* border: 2px solid black; */
+
+}
+#close{
+    display: none;
+}
+@media (max-width:1280px){
+    
+    header{
+        max-width: 100%;
+        padding: 15px 50px;
+    }
+
+    .logo{
+        margin-top: -10px;
+        padding-left: 20px;
+        height: 50px;
+        width: 140px;
+    }
+    nav ul li .nav-list{
+        max-width: 100%;
+        font-size: 15px;
+        padding: 10px 10px;
+    }
+    header.sticky{
+        max-width: 100%;
+        padding: 15px 50px;
+    }
+    #ab-heading{
+        height:43vh ;
+    }
+    #img-1{
+        height: 45vh;
+        width:300px;
+    }
+    #img-2{
+        height: 20vh;
+        width: 300px;
+        left: 250px;
+    }
+    #pp-heading{
+        height: 20vh;
+    }
+    .fd-details{
+        height: 40vh;
+    }
+    #feedback{
+        height: 60vh;
+    }
+    #newsletter .form2{
+        width: 70%;
+    }
+};
+@media only screen and (max-width:1120px){
+    #img-2{
+        left: 100px;
+    }
+}
+@media (max-width:1120px){
+    #img-2{
+        left: 200px;
+    }
+}
+@media (max-width:1080px){
+    #img-2{
+        left: 180px;
+        height: 15vh;
+        width: 250px;
+    }
+    #img-1{
+        height: 35vh;
+        width:300px;
+    }
+}
+@media (max-width:998px){
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        left: -300px;
+        height: 100vh;
+        width: 300px;
+        background-color:navy;
+        box-shadow: 0 40px 60px rgb(0,0,0,0.1);
+        padding: 80px 0 0 10px;
+        transition: 0.3s;
+    }
+
+    #navbar.active {
+        left: 0px;
+
+    }
+    nav ul li {
+        margin-bottom: 25px;
+    }
+    #mobile {
+        margin-left: -30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #mobile i {
+        color:whitesmoke;
+        font-size: 24px;
+        padding-right: 25px;
+    }
+    #bar{
+        justify-content: flex-start;
+    }
+    #close{
+        display: flex;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        color:whitesmoke;
+        font-size: 24px;
+    }
+    header{
+        max-width: 100%;
+        padding: 20px 70px;
+    }
+    .logo2{
+        margin-top: -10px;
+        height: 50px;
+        width: 140px;
+    }
+    .logo{
+        display: none;
+        margin-top: -10px;
+        height: 50px;
+        width: 140px;
+    }
+    .drop-down{
+        z-index: 999;
+    }
+    .search-bar .search-box .searchToggle{
+        margin-top: -20px;
+    }
+    nav .btn1{
+        top:-1px;
+    }
+    header.sticky{
+        max-width: 100%;
+        padding: 20px 70px;
+    }
+    .fd-details{
+        height: 60vh;
+    }
+    #feedback{
+        height: fit-content;
+    }
+    #newsletter .form2{
+        width: 70%;
+    }
+    footer{
+        height: fit-content;
+    }
+}
+@media (max-width:786px){
+    #ab-heading h2{
+        font-size: 25px;
+    }
+    #ab-heading h1{
+        font-size: 35px;
+    }
+    #img-2{
+        left: 100px;
+    }
+}
+@media (max-width:544px){
+    #ab-heading h2{
+        font-size: 20px;
+    }
+    #ab-heading h1{
+        font-size: 34px;
+    }
+    #img-2{
+        display: none;
+    }
+    #img-1{
+        height: 40vh;
+        width:350px;
+    }
+    #pp-heading{
+        height: 25vh;
+    }
+    #pp-heading h2{
+        font-size: 25px;
+    }
+    #pp-heading h1{
+        font-size: 35px;
+    }
+    .fd-details{
+        height: 70vh;
+    }
+
+}
+@media (max-width:412px){
+    .fd-details{
+        height: 80vh;
+    }
+    #ab-heading{
+        height: 37vh;
+    }
+    #ab-heading h2{
+        font-size: 17px;
+    }
+    #ab-heading h1{
+        font-size: 25px;
+    }
+    #newsletter .form2{
+        width: 40%;
+    }
+}
+
+
+
